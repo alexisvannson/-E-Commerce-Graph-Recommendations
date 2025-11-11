@@ -1,2 +1,4 @@
 neo4j
 fastapi
+uvicorn[standard]
+psycopg2-binary

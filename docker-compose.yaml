@@ -1,14 +1,12 @@
-version: "3.9"
-
 services:
   postgres:
-    image: postgres:15
+    image: postgres:16
     container_name: postgres_db
     restart: always
     environment:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+      POSTGRES_DB: shop
     ports:
       - "5432:5432"
     volumes:
@@ -21,6 +19,7 @@ services:
     restart: always
     environment:
       NEO4J_AUTH: neo4j/yourStrongPassword123
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
     ports:
       - "7474:7474"   # Neo4j browser
       - "7687:7687"   # Bolt protocol
@@ -40,6 +39,24 @@ services:
     command: [ "bash", "start.sh" ]
     ports:
       - "8000:8000"
+
+  checks:
+    build: ./scripts
+    container_name: checks
+    depends_on:
+      - app
+      - postgres
+      - neo4j
+    volumes:
+      - ./app:/work/app
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=shop
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=yourStrongPassword123
 
 volumes:
   pgdata:
