@@ -32,6 +32,42 @@ The system consists of four main services:
 - **Automated Testing**: End-to-end validation script
 - **Docker Compose**: One-command deployment
 
+
+## Recommendation Strategies
+
+**Graph-Based Techniques**
+- Personalized PageRank on the `Customer` → `Product` graph to surface similar items with strong interaction paths.
+- Community detection (e.g., Louvain, Label Propagation) to cluster customers or products into affinity groups.
+- Shortest-path and k-nearest-neighbor traversals to combine purchase, event, and category relationships.
+
+**Hybrid Approaches**
+- Blend collaborative filtering with graph features by exporting embeddings (GraphSAGE, node2vec) for use in downstream ML models.
+- Incorporate content attributes (category, price bucket, brand) to cold-start recommendations for new products.
+- Use event-weighted scoring to capture intent (e.g., `view` < `add_to_cart` < `purchase`).
+
+**Operational Best Practices**
+- Schedule offline batch jobs for heavy graph analytics and persist scored recommendation lists in PostgreSQL or a cache.
+- Expose real-time lookups through parameterized Cypher or FastAPI endpoints that accept customer or basket context.
+- Run A/B experiments comparing recommendation pipelines and track business KPIs (CTR, conversion rate, average order value).
+
+##  Scaling Options
+
+**Data Volume & Throughput**
+- Tune Neo4j with appropriate page cache and heap sizes; monitor `neo4j` container memory usage and adjust Docker resources.
+- Partition ETL loads into smaller batches (`chunk_size`) and enable APOC `periodic.iterate` for large upserts.
+- Introduce Kafka or a message queue to capture streaming events, emitting incremental updates instead of full reloads.
+
+**Service Architecture**
+- Deploy PostgreSQL and Neo4j on managed services or separate hosts to prevent CPU contention from analytics workloads.
+- Front the FastAPI service with a load balancer and enable connection pooling (e.g., `asyncpg`, `uvicorn --workers`) for concurrency.
+- Leverage Redis or another cache for hot recommendation results, invalidating on significant data changes.
+
+**Reliability & Observability**
+- Add metrics exporters (Prometheus, Neo4j metrics) and dashboards to visualize query latency and graph size growth.
+- Automate backups and point-in-time recovery for PostgreSQL and Neo4j volumes.
+- Define infrastructure-as-code (Terraform, Ansible) to reproduce environments and scale clusters consistently.
+
+
 ## 📋 Prerequisites
 
 - Docker and Docker Compose installed
