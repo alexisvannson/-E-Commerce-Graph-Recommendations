@@ -22,17 +22,6 @@ The system consists of four main services:
 4. **Checks Service** - Automated end-to-end testing and validation
 
 
-##  Features
-
-- **ETL Pipeline**: Automated data extraction, transformation, and loading
-- **Graph Modeling**: Converts relational data into graph structures (Customers, Products, Orders, Events)
-- **Batch Processing**: Efficient chunk-based data loading
-- **Idempotent Operations**: Safe to run multiple times using MERGE operations
-- **Health Monitoring**: FastAPI health endpoints for service monitoring
-- **Automated Testing**: End-to-end validation script
-- **Docker Compose**: One-command deployment
-
-
 ## Recommendation Strategies
 
 **Graph-Based Techniques**
@@ -67,12 +56,6 @@ The system consists of four main services:
 - Automate backups and point-in-time recovery for PostgreSQL and Neo4j volumes.
 - Define infrastructure-as-code (Terraform, Ansible) to reproduce environments and scale clusters consistently.
 
-
-## 📋 Prerequisites
-
-- Docker and Docker Compose installed
-- At least 4GB of available RAM
-- Ports 5432, 7474, 7687, and 8000 available
 
 ##  Quick Start
 
@@ -162,34 +145,6 @@ The ETL script supports environment variable configuration:
 - Password: `yourStrongPassword123`
 - Browser: http://localhost:7474
 
-## 📊 Data Model
-
-### PostgreSQL Schema
-
-- **customers** - Customer information
-- **categories** - Product categories
-- **products** - Product catalog
-- **orders** - Order transactions
-- **order_items** - Order line items
-- **events** - Customer behavioral events (views, clicks, cart additions)
-
-### Neo4j Graph Model
-
-**Nodes:**
-- `Customer` - Customer entities
-- `Product` - Product entities
-- `Category` - Product categories
-- `Order` - Order entities
-- `Event` - Behavioral events
-
-**Relationships:**
-- `PLACED` - Customer → Order
-- `CONTAINS` - Order → Product (with quantity)
-- `BELONGS_TO` - Product → Category
-- `DID` - Customer → Event
-- `ON` - Event → Product
-
-## 🔌 API Endpoints
 
 ### FastAPI Service
 
@@ -205,21 +160,6 @@ The ETL script supports environment variable configuration:
   {"ok": true}
   ```
 
-## 🛠️ ETL Process
-
-The ETL pipeline (`app/etl.py`) includes the following helper functions:
-
-### Core Functions
-
-- `wait_for_postgres()` - Waits for PostgreSQL to be ready
-- `wait_for_neo4j()` - Waits for Neo4j to be ready
-- `run_cypher(query)` - Executes a single Cypher query
-- `run_cypher_file(file_path)` - Executes multiple Cypher statements from a file
-- `chunk(data, chunk_size)` - Splits data into batches for processing
-- `extract_data_from_postgres()` - Extracts all tables from PostgreSQL
-- `transform_data_to_neo4j(tables)` - Transforms relational data to graph format
-- `load_data_to_neo4j(nodes, relationships)` - Loads data into Neo4j
-- `etl()` - Main ETL orchestration function
 
 ### Running the ETL
 
@@ -336,7 +276,7 @@ docker compose build
 docker compose down -v
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Services Won't Start
 
@@ -379,33 +319,6 @@ docker compose up -d
 docker compose exec app python etl.py
 ```
 
-## Technologies
-
-- **PostgreSQL 16** - Relational database
-- **Neo4j 5** - Graph database with APOC and GDS plugins
-- **FastAPI** - Modern Python web framework
-- **Python 3.11** - Programming language
-- **Docker Compose** - Container orchestration
-- **psycopg2** - PostgreSQL adapter
-- **neo4j** - Neo4j Python driver
-
-##  Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test with `docker compose run --rm checks`
-5. Submit a pull request
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Acknowledgments
-
-- Neo4j for the graph database platform
-- FastAPI for the excellent web framework
-- Docker for containerization
 
   ##  Screenshots
 
