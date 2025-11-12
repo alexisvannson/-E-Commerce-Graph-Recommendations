@@ -374,18 +374,14 @@ This project is open source and available under the MIT License.
 - FastAPI for the excellent web framework
 - Docker for containerization
 
-  ## 🖼️ Screenshots
-
-### Data Model Diagram
-
-![Data Model](image1.jpeg)
-
-### Example Graph Visualization
+  ##  Screenshots
 
 ![Graph Visualization](image2.jpeg)
 
-### ETL Process Execution
-
 ![ETL Execution](image3.jpeg)
+
+
+
+
 
 
