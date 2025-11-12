@@ -2,7 +2,6 @@
 
 A comprehensive ETL pipeline that extracts e-commerce data from PostgreSQL, transforms it into a graph structure, and loads it into Neo4j for advanced recommendation system capabilities.
 
-![Architecture Overview](assets/Screenshot%202025-11-08%20at%2017.41.11.png)
 
 ## 🎯 Overview
 
@@ -375,7 +374,4 @@ This project is open source and available under the MIT License.
 - FastAPI for the excellent web framework
 - Docker for containerization
 
----
-
-**Happy Graph Querying! 🚀**
 
