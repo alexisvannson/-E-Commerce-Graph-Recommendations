@@ -21,7 +21,6 @@ The system consists of four main services:
 3. **FastAPI App** - REST API service with health endpoints
 4. **Checks Service** - Automated end-to-end testing and validation
 
-![Service Architecture](assets/Screenshot%202025-11-08%20at%2018.02.38.png)
 
 ##  Features
 
@@ -377,6 +376,8 @@ This project is open source and available under the MIT License.
 ![Graph Visualization](image2.jpeg)
 
 ![ETL Execution](image3.jpeg)
+
+![Service Architecture](assets/Screenshot%202025-11-08%20at%2018.02.38.png)
 
 ![ETL Execution](assets/Screenshot%202025-11-08%20at%2018.02.57.png)
 
