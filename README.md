@@ -3,7 +3,7 @@
 A comprehensive ETL pipeline that extracts e-commerce data from PostgreSQL, transforms it into a graph structure, and loads it into Neo4j for advanced recommendation system capabilities.
 
 
-## 🎯 Overview
+##  Overview
 
 This project demonstrates a modern data pipeline architecture that:
 - **Extracts** transactional e-commerce data from PostgreSQL
@@ -12,7 +12,7 @@ This project demonstrates a modern data pipeline architecture that:
 
 The system includes a FastAPI service for health monitoring and a comprehensive ETL process with helper utilities for batch processing and Cypher query execution.
 
-## 🏗️ Architecture
+##  Architecture
 
 The system consists of four main services:
 
@@ -23,7 +23,7 @@ The system consists of four main services:
 
 ![Service Architecture](assets/Screenshot%202025-11-08%20at%2018.02.38.png)
 
-## ✨ Features
+##  Features
 
 - **ETL Pipeline**: Automated data extraction, transformation, and loading
 - **Graph Modeling**: Converts relational data into graph structures (Customers, Products, Orders, Events)
@@ -39,7 +39,7 @@ The system consists of four main services:
 - At least 4GB of available RAM
 - Ports 5432, 7474, 7687, and 8000 available
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 
@@ -73,7 +73,7 @@ docker compose run --rm checks
 
 ![ETL Execution](assets/Screenshot%202025-11-08%20at%2018.02.57.png)
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 .
@@ -218,10 +218,10 @@ docker compose run --rm checks
 ```
 
 This will:
-- ✅ Check FastAPI health endpoint
-- ✅ Verify PostgreSQL connectivity and queries
-- ✅ Execute the ETL process
-- ✅ Validate all outputs
+-  Check FastAPI health endpoint
+-  Verify PostgreSQL connectivity and queries
+-  Execute the ETL process
+-  Validate all outputs
 
 ### Manual Testing
 
@@ -245,7 +245,7 @@ docker compose exec postgres psql -U myuser -d shop -c "SELECT * FROM orders LIM
 curl http://localhost:8000/health
 ```
 
-## 📝 Example Queries
+##  Example Queries
 
 ### Find Products Purchased Together
 
@@ -276,7 +276,7 @@ ORDER BY views DESC
 LIMIT 10
 ```
 
-## 🐳 Docker Commands
+##  Docker Commands
 
 ### Start Services
 ```bash
@@ -346,7 +346,7 @@ docker compose up -d
 docker compose exec app python etl.py
 ```
 
-## 📚 Technologies
+## Technologies
 
 - **PostgreSQL 16** - Relational database
 - **Neo4j 5** - Graph database with APOC and GDS plugins
@@ -356,7 +356,7 @@ docker compose exec app python etl.py
 - **psycopg2** - PostgreSQL adapter
 - **neo4j** - Neo4j Python driver
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -364,14 +364,28 @@ docker compose exec app python etl.py
 4. Test with `docker compose run --rm checks`
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Neo4j for the graph database platform
 - FastAPI for the excellent web framework
 - Docker for containerization
+
+  ## 🖼️ Screenshots
+
+### Data Model Diagram
+
+![Data Model](assets/image1.jpeg)
+
+### Example Graph Visualization
+
+![Graph Visualization](assets/image2.jpeg)
+
+### ETL Process Execution
+
+![ETL Execution](assets/image3.jpeg)
 
 
