@@ -71,8 +71,6 @@ docker compose exec app python etl.py
 docker compose run --rm checks
 ```
 
-![ETL Execution](assets/Screenshot%202025-11-08%20at%2018.02.57.png)
-
 ##  Project Structure
 
 ```
@@ -207,7 +205,7 @@ The ETL process:
 5. Loads data into Neo4j in batches
 6. Reports completion status
 
-## 🧪 Testing
+##  Testing
 
 ### Automated End-to-End Tests
 
@@ -380,7 +378,7 @@ This project is open source and available under the MIT License.
 
 ![ETL Execution](image3.jpeg)
 
-
+![ETL Execution](assets/Screenshot%202025-11-08%20at%2018.02.57.png)
 
 
 
