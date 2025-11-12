@@ -378,14 +378,14 @@ This project is open source and available under the MIT License.
 
 ### Data Model Diagram
 
-![Data Model](assets/image1.jpeg)
+![Data Model](image1.jpeg)
 
 ### Example Graph Visualization
 
-![Graph Visualization](assets/image2.jpeg)
+![Graph Visualization](image2.jpeg)
 
 ### ETL Process Execution
 
-![ETL Execution](assets/image3.jpeg)
+![ETL Execution](image3.jpeg)
 
 
